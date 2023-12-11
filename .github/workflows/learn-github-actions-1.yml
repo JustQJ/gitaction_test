@@ -12,3 +12,11 @@ jobs:
       - run: touch test.log
       - run: echo "second" > ./test.log
       - run: cat ./test.log
+  current-dir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: ls
