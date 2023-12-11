@@ -1,0 +1,14 @@
+name: learn-github-actions-1
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  cat-log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: touch test.log
+      - run: echo "second" > ./test.log
+      - run: cat ./test.log
